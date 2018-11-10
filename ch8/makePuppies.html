@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lan="en">
+	<head>
+		<meta charset="utf-8">
+		<title>cute three puppers</title>
+	</head>
+	<body>
+		<h1>Make cute puppers appear & disappear!</h1>
+		<hr>
+		<pre>
+Do you like cute <span style="color:pink; font-size:30px">puppers?</span>
+then click each texts below and see the pupper pictures!!
+		</pre>
+		<a id="pupper1" href="#" onclick="createPupper(this.id)">I want to see puppers</a>
+		<a id="pupper2" href="#" onclick="createPupper(this.id)">more puppers please!</a>
+		<a id="pupper3" href="#" onclick="createPupper(this.id)">Even MORE puppers!</a>
+	</body>
+	<script>
+		function createPupper(id){
+			var node = document.getElementById(id);
+			var pupper_img = document.createElement('img');
+			var img_src = id + ".jpg";
+			var pupper_alt;
+
+			// determine alt text
+			switch(id){
+				case 'pupper1':
+					pupper_alt = "A cute puppy is running through the grass.";
+					break;
+				case 'pupper2':
+					pupper_alt = "A cute small golden puppy is sitting on a soft floor.";
+					break;
+				case 'pupper3':
+					pupper_alt = "Three golden puppies are in a bathtub together.";
+				break;
+				default:
+					pupper_alt = "Unable to load an image.";
+					break;
+			}
+			pupper_img.setAttribute("src", img_src);
+			pupper_img.setAttribute("alt", pupper_alt);
+			pupper_img.addEventListener("click", function(){this.parentElement().removeChild(this);});
+			node.appendChild(pupper_img);
+			console.log(pupper_img);
+		}
+	</script>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head><title>My Puppy Pup</title></head>
+	<script>
+		function show_puppy(){
+			var display_div = document.getElementById("display");
+			display_div.innerHTML = "my <img src='good_pupper.jpg' alt='cute puppy' style='width:30em'> puppy";
+		}
+	</script>
+	<body>
+		<h1>Click the text below and see your puppy pup!</h1>
+		<hr>
+		<div id="display">
+			<p style="font-size:30px">Click <span style="color:pink" onclick="show_puppy()">right here</span></p>
+		</div>
+	</body>
+
+</html>
