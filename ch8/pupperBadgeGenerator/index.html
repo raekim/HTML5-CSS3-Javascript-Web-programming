@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lan="en">
+	<style type="text/css">
+		img{
+			width:200px;
+			height: 200px;
+			border-radius: 50%;
+			filter:"drop-shadow(10px 10px 4px #BBAAAA)";
+		}
+	</style>
+	<head>
+		<meta charset="utf-8">
+		<title>Pupper Badge Generator</title>
+	</head>
+	<body>
+		<h1>Make cute puppers appear & disappear!</h1>
+		<hr>
+		<pre>
+Do you like cute <span style="color:pink; font-size:30px">puppers?</span>
+then click each of the links below and get all the pupper badges!!
+		</pre>
+		<span><a id="pupper1" href="#pupper1" onclick="createPupper(this.id)">I want to see puppers</a></span><br>
+		<span><a id="pupper2" href="#pupper2" onclick="createPupper(this.id)">more puppers please!</a></span><br>
+		<span><a id="pupper3" href="#pupper3" onclick="createPupper(this.id)">Even MORE puppers!</a></span><br>
+	</body>
+	<script>
+		function createPupper(id){
+			var node = document.getElementById(id);
+			var pupper_img = document.createElement('img');
+			var img_src;
+			var img_alt = 'Failed to load the image';
+
+			img_src = id + '.jpg';
+			switch(id){
+				case 'pupper1':
+					img_alt = "Puppy running through grass";
+					break;
+				case 'pupper2':
+					img_alt = "Small puppy sitting on a soft floor";
+					break;
+				case 'pupper3':
+					img_alt = "Three golden puppies are in a bathtub together";
+					break;
+			}
+
+			pupper_img.setAttribute("src", img_src);
+			pupper_img.setAttribute("alt", img_alt);
+			pupper_img.addEventListener("click", function(){this.parentElement.removeChild(this)})
+			node.parentElement.appendChild(pupper_img);
+		}
+	</script>
+</html>
